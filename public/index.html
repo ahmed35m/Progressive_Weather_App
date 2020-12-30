@@ -10,7 +10,7 @@
       content="Progressive Weather Application"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />    
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
 
     <title>Weather App</title>
   </head>
@@ -18,14 +18,14 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      if('serviceWorker' in navigator){
-        window.addEventListener(onload, ()=>{
-          navigator.serviceWorker.register('./serviceworker.js')
-          .then((reg)=>{ console.log("Success: ",reg)})
-          .catch((err)=>{console.log("Error : ",err)})
-        })
+      if('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+              navigator.serviceWorker.register('./serviceworker.js')
+                  .then((reg) => console.log('Success: ', reg.scope))
+                  .catch((err) => console.log('Failure: ', err));
+          })
       }
-    </script>
+  </script>
 
   </body>
 </html>
